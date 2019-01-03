@@ -15,6 +15,11 @@ Page({
       url: '../logs/logs'
     })
   },
+  testSwiper: function() {
+    wx.navigateTo({
+      url: '../swiper/swiper'
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

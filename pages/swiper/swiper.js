@@ -1,46 +1,46 @@
-// pages/preview/index.js.js
+// pages/swiper/swiper.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    region: ['广东省', '广州市', '海珠区'],
-    customItem: '全部',
-    latitude: 23.099994,
-    longitude: 113.324520,
-    markers: [{
-      id: 1,
-      latitude: 23.099994,
-      longitude: 113.324520,
-      name: 'T.I.T 创意园'
-    }],
-    covers: [{
-      latitude: 23.099994,
-      longitude: 113.344520,
-      iconPath: '/images/location.png'
-    }, {
-      latitude: 23.099994,
-      longitude: 113.304520,
-      iconPath: '/images/location.png'
-    }]
+    background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
+    indicatorDots: true,
+    vertical: false,
+    autoplay: false,
+    circular: false,
+    interval: 2000,
+    duration: 500,
+    previousMargin: 0,
+    nextMargin: 0
   },
 
-  onGotUserInfo: function (e) {
-    console.log(e.detail.errMsg)
-    console.log(e.detail.userInfo)
-    console.log(e.detail.rawData)
+  changeProperty: function (e) {
+    var propertyName = e.currentTarget.dataset.propertyName
+    var newData = {}
+    newData[propertyName] = e.detail.value
+    this.setData(newData)
   },
-// 选择区域
-  bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+  changeIndicatorDots: function (e) {
     this.setData({
-      region: e.detail.value
+      indicatorDots: !this.data.indicatorDots
     })
   },
-
-  previewImgs: function(e) {
-
+  changeAutoplay: function (e) {
+    this.setData({
+      autoplay: !this.data.autoplay
+    })
+  },
+  intervalChange: function (e) {
+    this.setData({
+      interval: e.detail.value
+    })
+  },
+  durationChange: function (e) {
+    this.setData({
+      duration: e.detail.value
+    })
   },
 
   /**
