@@ -7,7 +7,7 @@ Page({
   },
   goPreview: function() {
     wx.navigateTo({
-      url: '../preview/index.js'
+      url: '../preview/index'
     })
   },
   onLoad: function () {
