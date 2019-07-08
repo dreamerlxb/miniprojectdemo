@@ -59,6 +59,13 @@ Page({
     })
   },
 
+  setLoading: function() {
+    wx.showLoading({
+      mask: true,
+      title: "加载中"
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
